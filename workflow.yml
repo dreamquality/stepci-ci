@@ -10,7 +10,7 @@ tests:
       - id: updatePet
         name: Update an existing pet
         http:
-          url: /pet
+          url: pet
           method: PUT
           headers:
             Content-Type: application/json
@@ -39,7 +39,7 @@ tests:
       - id: addPet
         name: Add a new pet to the store
         http:
-          url: /pet
+          url: pet
           method: POST
           headers:
             Content-Type: application/json
@@ -69,7 +69,7 @@ tests:
       - id: findPetsByStatus
         name: Finds Pets by status
         http:
-          url: /pet/findByStatus
+          url: pet/findByStatus
           method: GET
           params:
             status: available
@@ -82,7 +82,7 @@ tests:
       - id: findPetsByTags
         name: Finds Pets by tags
         http:
-          url: /pet/findByTags
+          url: pet/findByTags
           method: GET
           params:
             tags:
@@ -96,7 +96,7 @@ tests:
       - id: getPetById
         name: Find pet by ID
         http:
-          url: /pet/10
+          url: pet/10
           method: GET
           check:
             status: 200
@@ -105,7 +105,7 @@ tests:
       - id: updatePetWithForm
         name: Updates a pet in the store with form data
         http:
-          url: /pet/10
+          url: pet/10
           method: POST
           params:
             name: doggie
@@ -117,7 +117,7 @@ tests:
       - id: deletePet
         name: Deletes a pet
         http:
-          url: /pet/31370294
+          url: pet/31370294
           method: DELETE
           headers:
             api_key: non Lorem ipsum
@@ -126,7 +126,7 @@ tests:
       - id: uploadFile
         name: uploads an image
         http:
-          url: /pet/57887260/uploadImage
+          url: pet/57887260/uploadImage
           method: POST
           params:
             additionalMetadata: esse
@@ -144,7 +144,7 @@ tests:
       - id: getInventory
         name: Returns pet inventories by status
         http:
-          url: /store/inventory
+          url: store/inventory
           method: GET
           check:
             status: 200
@@ -156,7 +156,7 @@ tests:
       - id: placeOrder
         name: Place an order for a pet
         http:
-          url: /store/order
+          url: store/order
           method: POST
           headers:
             Content-Type: application/json
@@ -174,7 +174,7 @@ tests:
       - id: getOrderById
         name: Find purchase order by ID
         http:
-          url: /store/order/-83776557
+          url: store/order/-83776557
           method: GET
           check:
             status: 200
@@ -183,7 +183,7 @@ tests:
       - id: deleteOrder
         name: Delete purchase order by ID
         http:
-          url: /store/order/59311393
+          url: store/order/59311393
           method: DELETE
           check:
             status: 400
@@ -193,7 +193,7 @@ tests:
       - id: createUser
         name: Create user
         http:
-          url: /user
+          url: user
           method: POST
           headers:
             Content-Type: application/json
@@ -216,7 +216,7 @@ tests:
       - id: createUsersWithListInput
         name: Creates list of users with given input array
         http:
-          url: /user/createWithList
+          url: user/createWithList
           method: POST
           headers:
             Content-Type: application/json
@@ -268,7 +268,7 @@ tests:
       - id: loginUser
         name: Logs user into the system
         http:
-          url: /user/login
+          url: user/login
           method: GET
           params:
             username: consectetur occaecat
@@ -280,14 +280,14 @@ tests:
       - id: logoutUser
         name: Logs out current logged in user session
         http:
-          url: /user/logout
+          url: user/logout
           method: GET
           check:
             status: 200
       - id: getUserByName
         name: Get user by user name
         http:
-          url: /user/commodo exercitation pariatur sed
+          url: user/commodo exercitation pariatur sed
           method: GET
           check:
             status: 200
@@ -296,7 +296,7 @@ tests:
       - id: updateUser
         name: Update user
         http:
-          url: /user/aute
+          url: user/aute
           method: PUT
           headers:
             Content-Type: application/json
@@ -311,7 +311,7 @@ tests:
       - id: deleteUser
         name: Delete user
         http:
-          url: /user/laborum
+          url: user/laborum
           method: DELETE
           check:
             status: 400
