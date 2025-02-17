@@ -16,12 +16,22 @@ tests:
             Content-Type: application/json
             accept: application/json
           json:
+            id: 10
             name: ut officia aute ut
+            category:
+              id: 1
+              name: Dogs
             photoUrls:
               - sunt occaecat ipsum magna
               - in
               - et dolor laboris ad minim
               - commodo
+            tags:
+              - id: 10
+                name: Dogs
+              - id: 20
+                name: Cats
+            status: available
           check:
             status: 200
             schema:
@@ -36,7 +46,7 @@ tests:
             accept: application/json
           json:
             id: 5615601
-            name: Ut
+            name: Alex
             category:
               id: -89561739
               name: in eu
@@ -47,15 +57,11 @@ tests:
               - ullamco est sunt Lorem esse
               - non Duis proident dolor in
             tags:
-              - tempor94: false
-                id: 53992872
-                name: ea non Ut
-              - do_24f: -90219790.16603607
-                nulla_3: nostrud dolor laborum
-                Uta: -78801367
-                eu_b5d: sed minim cupidatat
-                pariatur8: irure Ut
-                name: magna sunt adipisicing
+              - id: 10
+                name: Dogs
+              - id: 20
+                name: Cats
+            status: available
           check:
             status: 200
             schema:
@@ -80,10 +86,7 @@ tests:
           method: GET
           params:
             tags:
-              - deserunt pariatur laboris enim
-              - exercitation nisi in
-              - aute incididunt cillum
-              - irure do in nostrud veniam
+              - Dogs
           check:
             status: 200
             schema:
@@ -93,7 +96,7 @@ tests:
       - id: getPetById
         name: Find pet by ID
         http:
-          url: /pet/-85823602
+          url: /pet/10
           method: GET
           check:
             status: 200
@@ -102,13 +105,15 @@ tests:
       - id: updatePetWithForm
         name: Updates a pet in the store with form data
         http:
-          url: /pet/-19168200
+          url: /pet/10
           method: POST
           params:
-            name: ullamco
-            status: adipisicing in incididunt voluptate ut
+            name: doggie
+            status: blocked
           check:
-            status: 405
+            status: 200
+            schema:
+              $ref: "#/components/schemas/Pet"
       - id: deletePet
         name: Deletes a pet
         http:
